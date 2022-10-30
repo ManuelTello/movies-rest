@@ -1,0 +1,39 @@
+{
+    "apps": [
+        {
+            "name": "production",
+            "script": "./Build/App.js",
+            "watch": false,
+            "exec_mode": "cluster",
+            "instances": -1,
+            "env": {
+                "NODE_ENV": "production",
+                "DB_URI": "mongodb+srv://movies_user:VoT3Pi5a1rje4mNj@samplecluster.x4ghfnj.mongodb.net/?retryWrites=true&w=majority",
+                "DB_NAME": "sample_mflix"
+            }
+        },
+        {
+            "name": "development",
+            "script": "./Main/App.ts",
+            "watch": true,
+            "ignore_watch": [
+                "Build",
+                "node_modules",
+                "package-lock.json",
+                "Logs",
+                "Test",
+                ".gitignore",
+                "jest.config.js"
+            ],
+            "exec_mode": "cluster",
+            "instances": 1,
+            "interpreter": "./node_modules/.bin/ts-node",
+            "env": {
+                "NODE_ENV": "production",
+                "DB_URI": "mongodb+srv://movies_user:VoT3Pi5a1rje4mNj@samplecluster.x4ghfnj.mongodb.net/?retryWrites=true&w=majority",
+                "DB_NAME": "sample_mflix",
+                "PORT": 5000
+            }
+        }
+    ]
+}
