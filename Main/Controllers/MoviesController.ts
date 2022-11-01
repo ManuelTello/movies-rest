@@ -16,14 +16,15 @@ export class MoviesControllers implements IController {
 
     public InitRoutes(): void {
         this.Router.get("/", this.FetchMovie.bind(this));
-        this.Router.get("/:id", this.FetchMovieById.bind(this));
+        this.Router.get("/id/:id", this.FetchMovieById.bind(this));
 
     }
 
     private async FetchMovie(req: Request, res: Response): Promise<void> {
         try {
-            const movies: Promise<Array<Movie>> = this.Repository.FetchMovies();
-            const status: number = await movies ? 200 : 404;
+            const page: number = req.query ? parseInt(req.query.page as string) : 0;
+            const movies: Array<Movie> = await this.Repository.FetchMovies(page);
+            const status: number = movies ? 200 : 404;
             res.status(status).json(movies);
         } catch (err) {
             throw (err);

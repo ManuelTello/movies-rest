@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
-        "lib": [ "es2021" ],
+        "lib": [
+            "es2021"
+        ],
         "module": "CommonJS",
         "target": "ES2021",
         "strict": true,
@@ -10,6 +12,7 @@
         "moduleResolution": "node",
         "rootDir": "./Main",
         "outDir": "./Build",
+        "removeComments": true,
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "emitDecoratorMetadata": true,
