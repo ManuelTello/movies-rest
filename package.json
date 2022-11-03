@@ -7,9 +7,10 @@
     "start": "npx pm2 start ecosystem.config.json --onlt production",
     "development": "pm2-runtime start ecosystem.config.json --only development",
     "build": "tsc",
+    "build:babel": "babel Main --out-dir Legacy",
     "test:": ""
   },
-  "keywords": [],
+  "keywords": [ ],
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,6 +22,9 @@
     "typeorm": "^0.3.10"
   },
   "devDependencies": {
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.6",
+    "@babel/preset-env": "^7.19.4",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/node": "^18.11.7",

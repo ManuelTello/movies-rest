@@ -16,7 +16,7 @@ export class MoviesControllers implements IController {
 
     public InitRoutes(): void {
         this.Router.get("/", this.FetchMovie.bind(this));
-        this.Router.get("/id/:id", this.FetchMovieById.bind(this));
+        this.Router.get("/:id", this.FetchMovieById.bind(this));
 
     }
 
