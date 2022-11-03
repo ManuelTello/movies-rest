@@ -1,6 +1,7 @@
 import { DataSource, MongodbFindOneOptions, MongoRepository } from "typeorm";
 import { Movie } from "../Models/Movie";
 import { ObjectId } from "mongodb";
+import { MovieFetchQuery } from "../Types/TGlobal";
 
 export class MoviesRepository {
     private readonly Repository: MongoRepository<Movie>;
@@ -11,7 +12,7 @@ export class MoviesRepository {
         this.con = context;
     }
 
-    public async FetchMovies(page: number): Promise<Array<Movie>> {
+    public async FetchMovies(page: number, url_query?: {}): Promise<Array<Movie>> {
         try {
             const movies: Array<Movie> = await this.Repository.find({ take: 10, skip: 10 * page });
             return movies;
